@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Компьютерные сети - Основы сетевых технологий</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f5ff;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header styles */
+        header {
+            background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 5px solid #64b5f6;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-icons {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            opacity: 0.2;
+            font-size: 100px;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #1976d2;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            color: #bbdefb;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Section styles */
+        section {
+            padding: 50px 0;
+            background-color: white;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        section h2 {
+            color: #1976d2;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #bbdefb;
+            text-align: center;
+            font-size: 2.2rem;
+        }
+        
+        /* Card styles */
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        .card {
+            flex: 1 1 320px;
+            background: linear-gradient(145deg, #e3f2fd, #bbdefb);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #1976d2;
+            transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 380px;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card h3 {
+            color: #0d47a1;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card h3 i {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+        
+        /* Network diagram */
+        .network-diagram {
+            background-color: #e3f2fd;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .network-diagram h3 {
+            color: #0d47a1;
+            margin-bottom: 20px;
+        }
+        
+        .diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .device {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            width: 120px;
+            text-align: center;
+        }
+        
+        .device i {
+            font-size: 2.5rem;
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+        
+        .connection {
+            width: 40px;
+            height: 10px;
+            background-color: #64b5f6;
+            border-radius: 5px;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section {
+            flex: 1 1 300px;
+            margin: 15px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            border-bottom: 2px solid #64b5f6;
+            padding-bottom: 10px;
+        }
+        
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 8px 0;
+            }
+            
+            .cards-container {
+                flex-direction: column;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
+            
+            .header-icons {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Компьютерные сети</h1>
+            <p>Изучите основы сетевых технологий и принципы передачи данных</p>
+            <div class="header-icons">
+                <i class="fas fa-network-wired"></i>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#basics"><i class="fas fa-info-circle"></i> Основы</a></li>
+                <li><a href="#types"><i class="fas fa-sitemap"></i> Типы сетей</a></li>
+                <li><a href="#equipment"><i class="fas fa-router"></i> Оборудование</a></li>
+                <li><a href="#protocols"><i class="fas fa-exchange-alt"></i> Протоколы</a></li>
+                <li><a href="#security"><i class="fas fa-shield-alt"></i> Безопасность</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <section id="basics">
+            <h2>Что такое компьютерные сети?</h2>
+            <p>Компьютерная сеть — это совокупность компьютеров и других устройств, соединенных каналами связи для обмена информацией и совместного использования ресурсов. Сети позволяют устройствам взаимодействовать друг с другом, обеспечивая передачу данных и доступ к общим ресурсам.</p>
+            
+            <div class="cards-container">
+                <div class="card">
+                    <h3><i class="fas fa-share-alt"></i> Основные цели</h3>
+                    <p>Совместное использование ресурсов (принтеры, файлы, приложения), обмен информацией, повышение надежности и отказоустойчивости, централизованное управление.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-history"></i> История развития</h3>
+                    <p>Первые сети появились в 1960-х годах. ARPANET, созданная в 1969 году, стала предшественником современного Интернета. В 1980-х появились локальные сети (LAN), а в 1990-х началось массовое распространение Интернета.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-cogs"></i> Принципы работы</h3>
+                    <p>Сети работают на основе моделей взаимодействия (таких как OSI и TCP/IP), используют коммутацию пакетов для передачи данных и протоколы для стандартизации обмена информацией между устройствами.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="types">
+            <h2>Типы компьютерных сетей</h2>
+            <p>Компьютерные сети классифицируются по различным признакам: по территориальной распространенности, по архитектуре, по типу среды передачи и другим параметрам.</p>
+            
+            <div class="cards-container">
+                <div class="card">
+                    <h3><i class="fas fa-building"></i> LAN (Local Area Network)</h3>
+                    <p>Локальная сеть, охватывающая небольшую территорию (офис, здание, кампус). Обеспечивает высокую скорость передачи данных (до 100 Гбит/с).</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-city"></i> MAN (Metropolitan Area Network)</h3>
+                    <p>Городская сеть, объединяющая сети в пределах города. Обычно используется провайдерами для предоставления услуг подключения.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-globe"></i> WAN (Wide Area Network)</h3>
+                    <p>Глобальная сеть, покрывающая большие географические области (страны, континенты). Яркий пример — Интернет.</p>
+                </div>
+            </div>
+            
+            <div class="network-diagram">
+                <h3>Пример простой сети</h3>
+                <div class="diagram">
+                    <div class="device">
+                        <i class="fas fa-laptop"></i>
+                        <p>Ноутбук</p>
+                    </div>
+                    <div class="connection"></div>
+                    <div class="device">
+                        <i class="fas fa-router"></i>
+                        <p>Маршрутизатор</p>
+                    </div>
+                    <div class="connection"></div>
+                    <div class="device">
+                        <i class="fas fa-server"></i>
+                        <p>Сервер</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="equipment">
+            <h2>Сетевое оборудование</h2>
+            <p>Для построения компьютерных сетей используется различное активное и пассивное оборудование, каждое из которых выполняет определенные функции.</p>
+            
+            <div class="cards-container">
+                <div class="card">
+                    <h3><i class="fas fa-router"></i> Маршрутизатор (Router)</h3>
+                    <p>Устройство для соединения различных сетей и определения маршрута передачи данных между ними. Работает на сетевом уровне модели OSI.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-network-wired"></i> Коммутатор (Switch)</h3>
+                    <p>Устройство для соединения устройств в пределах одной сети. Работает на канальном уровне модели OSI, использует MAC-адреса для передачи данных.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-wifi"></i> Точка доступа (Access Point)</h3>
+                    <p>Устройство для создания беспроводной сети Wi-Fi, позволяющее подключаться к существующей сети без использования кабелей.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="protocols">
+            <h2>Сетевые протоколы</h2>
+            <p>Сетевые протоколы — это набор правил и соглашений, определяющих порядок обмена данными между устройствами в сети.</p>
+            
+            <div class="cards-container">
+                <div class="card">
+                    <h3><i class="fas fa-exchange-alt"></i> TCP/IP</h3>
+                    <p>Набор протоколов, лежащий в основе современного Интернета. Включает протоколы TCP (гарантированная доставка) и IP (маршрутизация и адресация).</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-envelope"></i> HTTP/HTTPS</h3>
+                    <p>Протоколы передачи гипертекста. HTTP используется для передачи веб-страниц, HTTPS — его защищенная версия с шифрованием.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-paper-plane"></i> DNS</h3>
+                    <p>Система доменных имен, преобразующая удобные для человека доменные имена (например, example.com) в IP-адреса.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="security">
+            <h2>Безопасность сетей</h2>
+            <p>Защита компьютерных сетей от несанкционированного доступа, атак и повреждений является критически важной задачей в современном мире.</p>
+            
+            <div class="cards-container">
+                <div class="card">
+                    <h3><i class="fas fa-firewall"></i> Межсетевые экраны</h3>
+                    <p>Файрволы контролируют и фильтруют сетевой трафик на основе predetermined правил безопасности, блокируя потенциально опасные соединения.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-key"></i> VPN</h3>
+                    <p>Виртуальные частные сети создают зашифрованные туннели для безопасной передачи данных через публичные сети, такие как Интернет.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-user-shield"></i> Аутентификация</h3>
+                    <p>Механизмы проверки подлинности пользователей и устройств, включая пароли, цифровые сертификаты и двухфакторную аутентификацию.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>О проекте</h3>
+                    <p>Образовательный ресурс, посвященный компьютерным сетям и сетевым технологиям. Мы предлагаем актуальную информацию для студентов и IT-специалистов.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Быстрые ссылки</h3>
+                    <ul>
+                        <li><a href="#basics">Основы сетей</a></li>
+                        <li><a href="#types">Типы сетей</a></li>
+                        <li><a href="#equipment">Оборудование</a></li>
+                        <li><a href="#protocols">Протоколы</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>Email: info@networksite.example</p>
+                    <p>Телефон: +7 (123) 456-78-90</p>
+                    <p>Адрес: Москва, ул. Сетевая, д. 1</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Компьютерные сети - Образовательный ресурс. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

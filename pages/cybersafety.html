@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кибербезопасность - Защита в цифровом мире</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header styles */
+        header {
+            background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-bottom: 5px solid #64b5f6;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #1976d2;
+            padding: 15px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #bbdefb;
+        }
+        
+        /* Section styles */
+        section {
+            padding: 40px 0;
+            background-color: white;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        section h2 {
+            color: #1976d2;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #bbdefb;
+        }
+        
+        /* Card styles */
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .card {
+            flex: 1 1 300px;
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #1976d2;
+        }
+        
+        .card h3 {
+            color: #0d47a1;
+            margin-bottom: 15px;
+        }
+        
+        /* Tips section */
+        .tip {
+            background-color: #bbdefb;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+            border-left: 4px solid #0d47a1;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0d47a1;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .cards-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Кибербезопасность в современном мире</h1>
+            <p>Защитите себя и свои данные в цифровую эпоху</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#basics">Основы</a></li>
+                <li><a href="#threats">Угрозы</a></li>
+                <li><a href="#protection">Защита</a></li>
+                <li><a href="#tools">Инструменты</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <section id="basics">
+            <h2>Что такое кибербезопасность?</h2>
+            <p>Кибербезопасность — это практика защиты систем, сетей и программ от цифровых атак. Эти атаки обычно направлены на получение доступа, изменение или уничтожение конфиденциальной информации, вымогательство денег у пользователей или нарушение нормальной работы бизнес-процессов.</p>
+            
+            <div class="cards-container">
+                <div class="card">
+                    <h3>Конфиденциальность</h3>
+                    <p>Обеспечение доступа к информации только авторизованным пользователям.</p>
+                </div>
+                <div class="card">
+                    <h3>Целостность</h3>
+                    <p>Поддержание точности и полноты данных, защита от несанкционированного изменения.</p>
+                </div>
+                <div class="card">
+                    <h3>Доступность</h3>
+                    <p>Гарантия того, что авторизованные пользователи имеют доступ к информации и связанным с ней активам, когда это необходимо.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="threats">
+            <h2>Основные киберугрозы</h2>
+            <p>Современный цифровой ландшафт наполнен различными угрозами, которые эволюционируют с каждым днем. Вот некоторые из наиболее распространенных:</p>
+            
+            <div class="cards-container">
+                <div class="card">
+                    <h3>Фишинг</h3>
+                    <p>Мошеннические попытки получения конфиденциальной информации, такие как пароли и данные кредитных карт, маскирующиеся под доверенные источники.</p>
+                </div>
+                <div class="card">
+                    <h3>Вредоносное ПО</h3>
+                    <p>Программное обеспечение, специально созданное для нарушения работы компьютера, сбора конфиденциальной информации или получения доступа к частным компьютерным системам.</p>
+                </div>
+                <div class="card">
+                    <h3>Ransomware</h3>
+                    <p>Тип вредоносного программного обеспечения, которое угрожает опубликовать данные жертвы или заблокировать доступ к ним, если не будет выплачен выкуп.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="protection">
+            <h2>Как защитить себя</h2>
+            <p>Соблюдение основных правил кибергигиены может значительно снизить риск стать жертвой кибератаки:</p>
+            
+            <div class="tip">
+                <h3>Используйте надежные пароли</h3>
+                <p>Создавайте сложные пароли, используйте разные пароли для разных сервисов и регулярно их меняйте. Рассмотрите возможность использования менеджера паролей.</p>
+            </div>
+            
+            <div class="tip">
+                <h3>Обновляйте программное обеспечение</h3>
+                <p>Регулярно обновляйте операционную систему, браузеры и другое программное обеспечение, чтобы закрыть уязвимости безопасности.</p>
+            </div>
+            
+            <div class="tip">
+                <h3>Остерегайтесь фишинга</h3>
+                <p>Не переходите по подозрительным ссылкам в электронных письмах и не загружайте вложения от неизвестных отправителей.</p>
+            </div>
+            
+            <div class="tip">
+                <h3>Используйте двухфакторную аутентификацию</h3>
+                <p>Добавьте дополнительный уровень безопасности к своим учетным записям, требующий не только пароль, но и второй фактор подтверждения.</p>
+            </div>
+        </section>
+        
+        <section id="tools">
+            <h2>Полезные инструменты</h2>
+            <p>Существует множество инструментов, которые могут помочь вам защитить вашу цифровую жизнь:</p>
+            
+            <div class="cards-container">
+                <div class="card">
+                    <h3>Антивирусное ПО</h3>
+                    <p>Программы для обнаружения, предотвращения и удаления вредоносного программного обеспечения.</p>
+                </div>
+                <div class="card">
+                    <h3>VPN</h3>
+                    <p>Виртуальные частные сети шифруют ваше интернет-соединение и защищают вашу конфиденциальность онлайн.</p>
+                </div>
+                <div class="card">
+                    <h3>Менеджеры паролей</h3>
+                    <p>Приложения, которые помогают генерировать, хранить и управлять вашими паролями в зашифрованном хранилище.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 Кибербезопасность - Информационный ресурс. Все права защищены.</p>
+            <p>Помните: ваша безопасность в цифровом мире начинается с вас!</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полезные ресурсы | Информатика и программирование</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f5ff;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header styles */
+        header {
+            background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 5px solid #64b5f6;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-icons {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            opacity: 0.2;
+            font-size: 100px;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #1976d2;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            color: #bbdefb;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Section styles */
+        section {
+            padding: 50px 0;
+            background-color: white;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        section h2 {
+            color: #1976d2;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #bbdefb;
+            text-align: center;
+            font-size: 2.2rem;
+        }
+        
+        /* Resource categories */
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .category-btn {
+            background: linear-gradient(145deg, #0d47a1, #1976d2);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .category-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .category-btn.active {
+            background: linear-gradient(145deg, #64b5f6, #1976d2);
+        }
+        
+        /* Resource cards */
+        .resources-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .resource-card {
+            background: linear-gradient(145deg, #e3f2fd, #bbdefb);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #1976d2;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .resource-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .resource-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #1976d2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .resource-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+        
+        .resource-name {
+            color: #0d47a1;
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+        
+        .resource-type {
+            color: #64b5f6;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+        
+        .resource-description {
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .resource-link {
+            display: inline-block;
+            background-color: #1976d2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+        
+        .resource-link:hover {
+            background-color: #0d47a1;
+        }
+        
+        /* Learning path */
+        .learning-path {
+            background-color: #e3f2fd;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        .learning-path h3 {
+            color: #0d47a1;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .path-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .path-step {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding-left: 70px;
+        }
+        
+        .step-number {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: #1976d2;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Books section */
+        .books-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .book-card {
+            background: linear-gradient(145deg, #e3f2fd, #bbdefb);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #0d47a1;
+        }
+        
+        .book-title {
+            color: #0d47a1;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .book-author {
+            color: #64b5f6;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        /* Community section */
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .community-item {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .community-item i {
+            font-size: 2.5rem;
+            color: #1976d2;
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section {
+            flex: 1 1 300px;
+            margin: 15px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            border-bottom: 2px solid #64b5f6;
+            padding-bottom: 10px;
+        }
+        
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 8px 0;
+            }
+            
+            .resources-container {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
+            
+            .header-icons {
+                display: none;
+            }
+            
+            .resource-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .resource-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .categories {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .category-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .path-step {
+                padding-left: 20px;
+                padding-top: 60px;
+            }
+            
+            .step-number {
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Полезные ресурсы</h1>
+            <p>Лучшие материалы для изучения информатики и программирования</p>
+            <div class="header-icons">
+                <i class="fas fa-book-open"></i>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#learning"><i class="fas fa-graduation-cap"></i> Обучение</a></li>
+                <li><a href="#practice"><i class="fas fa-code"></i> Практика</a></li>
+                <li><a href="#books"><i class="fas fa-book"></i> Книги</a></li>
+                <li><a href="#community"><i class="fas fa-users"></i> Сообщество</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <section id="learning">
+            <h2>Платформы для обучения</h2>
+            <p>Лучшие онлайн-платформы и курсы для изучения программирования и компьютерных наук.</p>
+            
+            <div class="categories">
+                <button class="category-btn active"><i class="fas fa-laptop-code"></i> Все платформы</button>
+                <button class="category-btn"><i class="fas fa-free-code-camp"></i> Бесплатные</button>
+                <button class="category-btn"><i class="fas fa-certificate"></i> С сертификатами</button>
+                <button class="category-btn"><i class="fas fa-graduation-cap"></i> Университетские</button>
+            </div>
+            
+            <div class="resources-container">
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fab fa-coursera"></i>
+                        </div>
+                        <div>
+                            <h3 class="resource-name">Coursera</h3>
+                            <p class="resource-type">Онлайн-платформа</p>
+                        </div>
+                    </div>
+                    <div class="resource-description">
+                        <p>Курсы от ведущих университетов мира. Специализации по компьютерным наукам, Data Science, веб-разработке и другим направлениям. Есть финансовую помощь.</p>
+                    </div>
+                    <a href="https://www.coursera.org" class="resource-link" target="_blank">Перейти на сайт</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fab fa-udemy"></i>
+                        </div>
+                        <div>
+                            <h3 class="resource-name">Udemy</h3>
+                            <p class="resource-type">Онлайн-курсы</p>
+                        </div>
+                    </div>
+                    <div class="resource-description">
+                        <p>Огромная библиотека курсов по программированию. Частые скидки, курсы на русском языке. Практическая направленность, проекты в портфолио.</p>
+                    </div>
+                    <a href="https://www.udemy.com" class="resource-link" target="_blank">Перейти на сайт</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div>
+                            <h3 class="resource-name">freeCodeCamp</h3>
+                            <p class="resource-type">Бесплатное обучение</p>
+                        </div>
+                    </div>
+                    <div class="resource-description">
+                        <p>Полностью бесплатная платформа с интерактивными уроками и проектами. Сертификаты по веб-разработке, Data Analysis, машинному обучению и другим направлениям.</p>
+                    </div>
+                    <a href="https://www.freecodecamp.org" class="resource-link" target="_blank">Перейти на сайт</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fab fa-kaggle"></i>
+                        </div>
+                        <div>
+                            <h3 class="resource-name">Kaggle Learn</h3>
+                            <p class="resource-type">Data Science</p>
+                        </div>
+                    </div>
+                    <div class="resource-description">
+                        <p>Бесплатные микро-курсы по Data Science, машинному обучению и анализу данных. Практические задания и соревнования. Отличное сообщество.</p>
+                    </div>
+                    <a href="https://www.kaggle.com/learn" class="resource-link" target="_blank">Перейти на сайт</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div>
+                            <h3 class="resource-name">Stepik</h3>
+                            <p class="resource-type">Русскоязычная платформа</p>
+                        </div>
+                    </div>
+                    <div class="resource-description">
+                        <p>Курсы от российских университетов и компаний. Много бесплатного контента на русском языке. Интерактивные задачи и проекты.</p>
+                    </div>
+                    <a href="https://stepik.org" class="resource-link" target="_blank">Перейти на сайт</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fab fa-edx"></i>
+                        </div>
+                        <div>
+                            <h3 class="resource-name">edX</h3>
+                            <p class="resource-type">Университетские курсы</p>
+                        </div>
+                    </div>
+                    <div class="resource-description">
+                        <p>Курсы от MIT, Harvard и других топовых университетов. MicroMasters и профессиональные сертификаты. Можно учиться бесплатно или платно за сертификат.</p>
+                    </div>
+                    <a href="https://www.edx.org" class="resource-link" target="_blank">Перейти на сайт</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="practice">
+            <h2>Практика и задачи</h2>
+            <p>Платформы для оттачивания навыков программирования через решение практических задач.</p>
+            
+            <div class="resources-container">
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div>
+                            <h3 class="resource-name">LeetCode</h3>
+                            <p class="resource-type">Алгоритмы и структуры данных</p>
+                        </div>
+                    </div>
+                    <div class="resource-description">
+                        <p>Тысячи задач для подготовки к техническим собеседованиям. Сообщество разработчиков, еженедельные соревнования и разборы решений.</p>
+                    </div>
+                    <a href="https://leetcode.com" class="resource-link" target="_blank">Перейти на сайт</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div>
+                            <h3 class="resource-name">Codewars</h3>
+                            <p class="resource-type">Практика программирования</p>
+                        </div>
+                    </div>
+                    <div class="resource-description">
+                        <p>Обучение через решение ката (задач) и сравнение своих решений с другими. Рейтинговая система, поддержка множества языков программирования.</p>
+                    </div>
+                    <a href="https://www.codewars.com" class="resource-link" target="_blank">Перейти на сайт</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div>
+                            <h3 class="resource-name">GitHub</h3>
+                            <p class="resource-type">Открытые проекты</p>
+                        </div>
+                    </div>
+                    <div class="resource-description">
+                        <p>Крупнейший хостинг IT-проектов. Участвуйте в open-source проектах, изучайте код других разработчиков, создавайте портфолио.</p>
+                    </div>
+                    <a href="https://github.com" class="resource-link" target="_blank">Перейти на сайт</a>
+                </div>
+            </div>
+            
+            <div class="learning-path">
+                <h3>Путь изучения программирования</h3>
+                <div class="path-steps">
+                    <div class="path-step">
+                        <div class="step-number">1</div>
+                        <h4>Основы программирования</h4>
+                        <p>Изучите базовые концепции: переменные, условия, циклы, функции. Выберите первый язык (Python рекомендуется для начинающих).</p>
+                    </div>
+                    <div class="path-step">
+                        <div class="step-number">2</div>
+                        <h4>Алгоритмы и структуры данных</h4>
+                        <p>Освойте основные алгоритмы, сложность, структуры данных. Решайте задачи на специализированных платформах.</p>
+                    </div>
+                    <div class="path-step">
+                        <div class="step-number">3</div>
+                        <h4>Специализация</h4>
+                        <p>Выберите направление: веб-разработка, мобильные приложения, Data Science, и углубитесь в изучение.</p>
+                    </div>
+                    <div class="path-step">
+                        <div class="step-number">4</div>
+                        <h4>Практика и проекты</h4>
+                        <p>Создавайте реальные проекты, участвуйте в open-source, собирайте портфолио.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="books">
+            <h2>Рекомендуемые книги</h2>
+            <p>Классические и современные книги по программированию и компьютерным наукам.</p>
+            
+            <div class="books-container">
+                <div class="book-card">
+                    <h3 class="book-title">Совершенный код</h3>
+                    <p class="book-author">Стив Макконнелл</p>
+                    <p>Исчерпывающее руководство по созданию качественного программного обеспечения. Практические советы и лучшие практики.</p>
+                </div>
+                
+                <div class="book-card">
+                    <h3 class="book-title">Алгоритмы: построение и анализ</h3>
+                    <p class="book-author">Томас Кормен, Чарльз Лейзерсон</p>
+                    <p>Классический учебник по алгоритмам, известный как "CLRS". Фундаментальные знания для каждого программиста.</p>
+                </div>
+                
+                <div class="book-card">
+                    <h3 class="book-title">Чистый код</h3>
+                    <p class="book-author">Роберт Мартин</p>
+                    <p>Как писать код, который легко читать, поддерживать и улучшать. Принципы и практики чистого кода.</p>
+                </div>
+                
+                <div class="book-card">
+                    <h3 class="book-title">Грокаем алгоритмы</h3>
+                    <p class="book-author">Адитья Бхаргава</p>
+                    <p>Дружелюбное введение в алгоритмы с иллюстрациями и примерами. Отлично подходит для начинающих.</p>
+                </div>
+                
+                <div class="book-card">
+                    <h3 class="book-title">Искусство программирования</h3>
+                    <p class="book-author">Дональд Кнут</p>
+                    <p>Фундаментальный многотомный труд по компьютерным наукам. Для глубокого изучения алгоритмов и математических основ.</p>
+                </div>
+                
+                <div class="book-card">
+                    <h3 class="book-title">Не заставляйте меня думать</h3>
+                    <p class="book-author">Стив Круг</p>
+                    <p>Классика веб-юзабилити. Практическое руководство по созданию удобных и intuitive интерфейсов.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="community">
+            <h2>Сообщества и блоги</h2>
+            <p>Полезные сообщества, форумы и блоги для разработчиков и IT-специалистов.</p>
+            
+            <div class="community-grid">
+                <div class="community-item">
+                    <i class="fab fa-stack-overflow"></i>
+                    <h3>Stack Overflow</h3>
+                    <p>Крупнейшее сообщество разработчиков, где можно задавать вопросы и находить ответы.</p>
+                </div>
+                
+                <div class="community-item">
+                    <i class="fab fa-dev"></i>
+                    <h3>Dev.to</h3>
+                    <p>Сообщество разработчиков, где делятся опытом, статьями и проектами.</p>
+                </div>
+                
+                <div class="community-item">
+                    <i class="fab fa-reddit"></i>
+                    <h3>Reddit</h3>
+                    <p>Субреддиты like r/programming, r/learnprogramming, r/webdev с обсуждениями и новостями.</p>
+                </div>
+                
+                <div class="community-item">
+                    <i class="fas fa-newspaper"></i>
+                    <h3>Хабр</h3>
+                    <p>Крупнейший IT-портал на русском языке с статьями, новостями и комментариями.</p>
+                </div>
+            </div>
+            
+            <div class="resources-container" style="margin-top: 40px;">
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <div>
+                            <h3 class="resource-name">YouTube каналы</h3>
+                            <p class="resource-type">Видео-уроки</p>
+                        </div>
+                    </div>
+                    <div class="resource-description">
+                        <p>Каналы с бесплатными уроками: Traversy Media, The Net Ninja, freeCodeCamp, Computerphile, и русскоязычные: Гоша Дударь, Владилен Минин.</p>
+                    </div>
+                    <a href="https://www.youtube.com" class="resource-link" target="_blank">Перейти на YouTube</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">
+                            <i class="fas fa-podcast"></i>
+                        </div>
+                        <div>
+                            <h3 class="resource-name">Подкасты</h3>
+                            <p class="resource-type">Аудио-контент</p>
+                        </div>
+                    </div>
+                    <div class="resource-description">
+                        <p>Популярные подкасты: Syntax FM, Software Engineering Daily, The Changelog, и русскоязычные: Подкаст "Запуск Завтра", RWpod.</p>
+                    </div>
+                    <a href="https://podcasts.google.com" class="resource-link" target="_blank">Найти подкасты</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>О проекте</h3>
+                    <p>Образовательный ресурс с curated подборкой лучших материалов для изучения информатики и программирования. Мы помогаем найти правильный путь в IT.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Категории ресурсов</h3>
+                    <ul>
+                        <li><a href="#learning">Онлайн-курсы</a></li>
+                        <li><a href="#practice">Практика</a></li>
+                        <li><a href="#books">Книги</a></li>
+                        <li><a href="#community">Сообщества</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>Email: info@itresources.example</p>
+                    <p>Телефон: +7 (123) 456-78-90</p>
+                    <p>Адрес: Москва, ул. Технологическая, д. 42</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Полезные ресурсы по информатике - Образовательный проект. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Простой скрипт для переключения категорий
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Убираем активный класс у всех кнопок
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    // Добавляем активный класс текущей кнопке
+                    this.classList.add('active');
+                    
+                    // Здесь можно добавить логику фильтрации ресурсов
+                    // Для демонстрации просто показываем alert
+                    alert('Фильтрация по категории: ' + this.textContent);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
