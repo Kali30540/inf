@@ -20,7 +20,7 @@
         }
         
         .container {
-            width: 85%;
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
@@ -30,7 +30,7 @@
         header {
             background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
             color: white;
-            padding: 40px 0;
+            padding: 30px 0;
             text-align: center;
             border-bottom: 5px solid #64b5f6;
             position: relative;
@@ -42,25 +42,27 @@
             bottom: 10px;
             right: 20px;
             opacity: 0.2;
-            font-size: 100px;
+            font-size: 80px;
         }
         
         header h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            padding: 0 15px;
         }
         
         header p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto;
+            padding: 0 15px;
         }
         
-        /* Navigation - исправленная */
+        /* Navigation */
         nav {
             background-color: #1976d2;
-            padding: 15px 0;
+            padding: 12px 0;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -71,21 +73,21 @@
             display: flex;
             justify-content: center;
             list-style: none;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
             padding: 0 10px;
         }
         
         nav ul li {
-            margin: 0 8px;
+            margin: 5px;
         }
         
         nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: all 0.3s;
-            padding: 6px 10px;
+            padding: 8px 12px;
             border-radius: 4px;
             white-space: nowrap;
             display: flex;
@@ -98,15 +100,36 @@
         }
         
         nav ul li a i {
-            margin-right: 6px;
+            margin-right: 8px;
             font-size: 1rem;
+        }
+        
+        /* Mobile menu button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            border-radius: 2px;
+            transition: all 0.3s;
         }
         
         /* Section styles */
         section {
-            padding: 50px 0;
+            padding: 40px 0;
             background-color: white;
-            margin: 30px 0;
+            margin: 25px 0;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
@@ -117,26 +140,27 @@
             padding-bottom: 15px;
             border-bottom: 3px solid #bbdefb;
             text-align: center;
-            font-size: 2.2rem;
+            font-size: 2rem;
+            padding: 0 15px;
         }
         
         /* Card styles */
         .cards-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 25px;
+            gap: 20px;
             margin-top: 30px;
             justify-content: center;
         }
         
         .card {
-            flex: 1 1 320px;
+            flex: 1 1 300px;
             background: linear-gradient(145deg, #e3f2fd, #bbdefb);
-            padding: 25px;
+            padding: 20px;
             border-radius: 10px;
             border-left: 5px solid #1976d2;
             transition: transform 0.3s, box-shadow 0.3s;
-            max-width: 380px;
+            max-width: 100%;
         }
         
         .card:hover {
@@ -147,7 +171,7 @@
         .card h3 {
             color: #0d47a1;
             margin-bottom: 15px;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             display: flex;
             align-items: center;
         }
@@ -160,7 +184,7 @@
         /* Welcome section */
         .welcome-section {
             text-align: center;
-            padding: 40px 0;
+            padding: 30px 0;
         }
         
         .welcome-content {
@@ -168,13 +192,13 @@
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            gap: 40px;
-            margin-top: 30px;
+            gap: 30px;
+            margin-top: 25px;
         }
         
         .welcome-text {
             flex: 1 1 500px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             line-height: 1.8;
             text-align: left;
             padding: 20px;
@@ -185,7 +209,7 @@
         
         .welcome-image {
             flex: 1 1 300px;
-            max-width: 400px;
+            max-width: 100%;
         }
         
         .welcome-image img {
@@ -214,6 +238,7 @@
         .footer-section {
             flex: 1 1 300px;
             margin: 15px;
+            padding: 0 10px;
         }
         
         .footer-section h3 {
@@ -229,34 +254,22 @@
         
         /* Responsive adjustments */
         @media (max-width: 1024px) {
-            nav ul li a {
-                font-size: 0.9rem;
-                padding: 6px 8px;
+            .header-icons {
+                font-size: 70px;
+                right: 15px;
             }
             
-            nav ul li a i {
-                margin-right: 4px;
+            nav ul li a {
                 font-size: 0.9rem;
+                padding: 7px 10px;
+            }
+            
+            .card {
+                flex: 1 1 280px;
             }
         }
         
         @media (max-width: 900px) {
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            nav ul li {
-                margin: 5px;
-            }
-            
-            nav ul li a {
-                font-size: 0.85rem;
-                padding: 5px 7px;
-            }
-        }
-        
-        @media (max-width: 768px) {
             header h1 {
                 font-size: 2.2rem;
             }
@@ -265,8 +278,9 @@
                 font-size: 1.1rem;
             }
             
-            .welcome-content {
-                flex-direction: column;
+            .header-icons {
+                font-size: 60px;
+                bottom: 5px;
             }
             
             nav ul {
@@ -279,33 +293,177 @@
             }
             
             nav ul li a {
-                font-size: 0.8rem;
-                padding: 4px 6px;
+                font-size: 0.85rem;
+                padding: 6px 9px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 25px 0;
             }
             
-            nav ul li a i {
-                font-size: 0.8rem;
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+            
+            .header-icons {
+                font-size: 50px;
+                right: 10px;
+            }
+            
+            .welcome-content {
+                flex-direction: column;
+            }
+            
+            .welcome-text {
+                font-size: 1rem;
+            }
+            
+            section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .card {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+            
+            .footer-section {
+                flex: 1 1 100%;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+            
+            header {
+                padding: 20px 0;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            header p {
+                font-size: 0.95rem;
+            }
+            
+            .header-icons {
+                display: none;
+            }
+            
+            nav {
+                padding: 10px 0;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+                width: 100%;
+            }
+            
+            nav ul li a {
+                justify-content: center;
+                padding: 12px;
+                border-radius: 0;
+            }
+            
+            .menu-toggle {
+                display: flex;
+                position: absolute;
+                top: 15px;
+                right: 20px;
+            }
+            
+            section {
+                padding: 30px 0;
+                margin: 20px 0;
+            }
+            
+            section h2 {
+                font-size: 1.6rem;
+                margin-bottom: 20px;
+            }
+            
+            .card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .welcome-text {
+                padding: 15px;
+                font-size: 0.95rem;
+            }
+            
+            footer {
+                padding: 20px 0;
             }
         }
         
         @media (max-width: 480px) {
-            nav ul li a span {
-                display: none;
+            header h1 {
+                font-size: 1.6rem;
             }
             
-            nav ul li a i {
-                margin-right: 0;
-                font-size: 1rem;
+            header p {
+                font-size: 0.9rem;
             }
             
-            nav ul li a {
-                padding: 8px 10px;
-                border-radius: 50%;
-                width: 40px;
-                height: 40px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
+            section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .card {
+                padding: 15px;
+            }
+            
+            .card h3 {
+                font-size: 1.2rem;
+            }
+            
+            .card h3 i {
+                font-size: 1.1rem;
+            }
+            
+            .welcome-text {
+                font-size: 0.9rem;
+                padding: 12px;
+            }
+            
+            .footer-section {
+                margin: 10px 0;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            
+            section h2 {
+                font-size: 1.4rem;
+            }
+            
+            .card h3 {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -322,7 +480,12 @@
     </header>
     
     <nav>
-        <ul>
+        <button class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="navMenu">
             <li><a href="pages/computer-webs.html"><i class="fas fa-network-wired"></i> <span>Компьютерные сети</span></a></li>
             <li><a href="pages/cybersafety.html"><i class="fas fa-shield-alt"></i> <span>Кибербезопасность</span></a></li>
             <li><a href="pages/it-scientist.html"><i class="fas fa-user-graduate"></i> <span>Ученые информатики</span></a></li>
@@ -337,7 +500,7 @@
             <h2>Добро пожаловать в мир информатики!</h2>
             <div class="welcome-content">
                 <div class="welcome-text">
-                    <p>Наш сайт создан для помощи ученикам, которые хотят достичь успехов в изучении информатики. Здесь вы найдете полезные материалы, интересные факты и ресурсы, которые помогут вам в учебе.</p>
+                    <p>Наш сайт создан для помощи ученикам, которые ХОТЯТ и МОГУТ достичь успехов в изучении информатики. Здесь вы найдете полезные материалы, интересные факты и ресурсы, которые помогут вам в учебе.</p>
                     <p>Если у вас не все получается, обязательно загляните в раздел "Полезные ресурсы". Возможно, именно там вы найдете то, что вам нужно для понимания сложных тем. Если же вы не найдете ответа там, не отчаивайтесь - мы постоянно добавляем новые материалы!</p>
                 </div>
                 <div class="welcome-image">
@@ -388,6 +551,22 @@
             </div>
         </div>
     </footer>
-</body>
 
+    <script>
+        // Мобильное меню
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('show');
+        });
+        
+        // Закрытие меню при клике вне его области
+        document.addEventListener('click', function(event) {
+            const navMenu = document.getElementById('navMenu');
+            const menuToggle = document.getElementById('menuToggle');
+            
+            if (!navMenu.contains(event.target) && !menuToggle.contains(event.target) && navMenu.classList.contains('show')) {
+                navMenu.classList.remove('show');
+            }
+        });
+    </script>
+</body>
 </html>
