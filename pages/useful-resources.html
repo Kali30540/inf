@@ -20,7 +20,7 @@
         }
         
         .container {
-            width: 85%;
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
@@ -30,7 +30,7 @@
         header {
             background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
             color: white;
-            padding: 40px 0;
+            padding: 30px 0;
             text-align: center;
             border-bottom: 5px solid #64b5f6;
             position: relative;
@@ -46,21 +46,22 @@
         }
         
         header h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         header p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto;
+            padding: 0 15px;
         }
         
         /* Navigation */
         nav {
             background-color: #1976d2;
-            padding: 18px 0;
+            padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -75,17 +76,23 @@
         }
         
         nav ul li {
-            margin: 0 20px;
+            margin: 5px 15px;
         }
         
         nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: all 0.3s;
             padding: 8px 12px;
             border-radius: 4px;
+            display: flex;
+            align-items: center;
+        }
+        
+        nav ul li a i {
+            margin-right: 8px;
         }
         
         nav ul li a:hover {
@@ -95,9 +102,9 @@
         
         /* Section styles */
         section {
-            padding: 50px 0;
+            padding: 40px 0;
             background-color: white;
-            margin: 30px 0;
+            margin: 25px 0;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
@@ -108,30 +115,39 @@
             padding-bottom: 15px;
             border-bottom: 3px solid #bbdefb;
             text-align: center;
-            font-size: 2.2rem;
+            font-size: 2rem;
+            padding: 0 15px 15px;
+        }
+        
+        section > p {
+            padding: 0 15px;
+            text-align: center;
+            margin-bottom: 20px;
         }
         
         /* Resource categories */
         .categories {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 15px;
             justify-content: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+            padding: 0 15px;
         }
         
         .category-btn {
             background: linear-gradient(145deg, #0d47a1, #1976d2);
             color: white;
             border: none;
-            padding: 15px 25px;
+            padding: 12px 20px;
             border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            font-size: 0.9rem;
         }
         
         .category-btn:hover {
@@ -146,14 +162,15 @@
         /* Resource cards */
         .resources-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
             margin-top: 30px;
+            padding: 0 15px;
         }
         
         .resource-card {
             background: linear-gradient(145deg, #e3f2fd, #bbdefb);
-            padding: 25px;
+            padding: 20px;
             border-radius: 10px;
             border-left: 5px solid #1976d2;
             transition: transform 0.3s, box-shadow 0.3s;
@@ -170,36 +187,36 @@
         .resource-header {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         .resource-icon {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background-color: #1976d2;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 20px;
+            margin-right: 15px;
             flex-shrink: 0;
         }
         
         .resource-icon i {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: white;
         }
         
         .resource-name {
             color: #0d47a1;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             margin-bottom: 5px;
         }
         
         .resource-type {
             color: #64b5f6;
             font-style: italic;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         
         .resource-description {
@@ -211,12 +228,13 @@
             display: inline-block;
             background-color: #1976d2;
             color: white;
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
             transition: background-color 0.3s;
             text-align: center;
+            font-size: 0.9rem;
         }
         
         .resource-link:hover {
@@ -226,21 +244,22 @@
         /* Learning path */
         .learning-path {
             background-color: #e3f2fd;
-            padding: 25px;
+            padding: 20px;
             border-radius: 10px;
-            margin: 40px 0;
+            margin: 30px 15px;
         }
         
         .learning-path h3 {
             color: #0d47a1;
             margin-bottom: 20px;
             text-align: center;
+            font-size: 1.5rem;
         }
         
         .path-steps {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
         }
         
         .path-step {
@@ -272,34 +291,37 @@
         /* Books section */
         .books-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 0 15px;
         }
         
         .book-card {
             background: linear-gradient(145deg, #e3f2fd, #bbdefb);
-            padding: 20px;
+            padding: 18px;
             border-radius: 8px;
             border-left: 4px solid #0d47a1;
         }
         
         .book-title {
             color: #0d47a1;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
         }
         
         .book-author {
             color: #64b5f6;
             font-style: italic;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
         }
         
         /* Community section */
         .community-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
+            padding: 0 15px;
         }
         
         .community-item {
@@ -310,9 +332,9 @@
         }
         
         .community-item i {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: #1976d2;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
         
         /* Footer */
@@ -320,8 +342,8 @@
             background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
             color: white;
             text-align: center;
-            padding: 30px 0;
-            margin-top: 50px;
+            padding: 25px 0;
+            margin-top: 40px;
         }
         
         .footer-content {
@@ -338,33 +360,63 @@
         }
         
         .footer-section h3 {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border-bottom: 2px solid #64b5f6;
             padding-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section p, .footer-section ul {
+            font-size: 0.9rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-section ul li a {
+            color: #bbdefb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: white;
+            text-decoration: underline;
         }
         
         .footer-bottom {
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
         }
         
         /* Responsive design */
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav ul li {
-                margin: 8px 0;
-            }
-            
-            .resources-container {
-                grid-template-columns: 1fr;
+        @media (max-width: 1024px) {
+            .container {
+                width: 95%;
             }
             
             header h1 {
                 font-size: 2.2rem;
+            }
+            
+            .header-icons {
+                font-size: 80px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 25px 0;
+            }
+            
+            header h1 {
+                font-size: 2rem;
             }
             
             header p {
@@ -373,6 +425,48 @@
             
             .header-icons {
                 display: none;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 8px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                justify-content: center;
+                padding: 10px;
+            }
+            
+            section {
+                padding: 30px 0;
+                margin: 20px 0;
+            }
+            
+            section h2 {
+                font-size: 1.7rem;
+                margin-bottom: 20px;
+            }
+            
+            .categories {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .category-btn {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .resources-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
             
             .resource-header {
@@ -385,16 +479,6 @@
                 margin-bottom: 15px;
             }
             
-            .categories {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .category-btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
             .path-step {
                 padding-left: 20px;
                 padding-top: 60px;
@@ -404,6 +488,135 @@
                 top: 20px;
                 left: 50%;
                 transform: translateX(-50%);
+            }
+            
+            .books-container, .community-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-section {
+                margin: 10px 0;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                width: 100%;
+                padding: 15px;
+            }
+            
+            header {
+                padding: 20px 0;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+            
+            nav {
+                padding: 10px 0;
+            }
+            
+            section {
+                padding: 25px 0;
+                margin: 15px 0;
+                border-radius: 8px;
+            }
+            
+            section h2 {
+                font-size: 1.5rem;
+                padding: 0 10px 10px;
+            }
+            
+            .resource-card, .book-card, .community-item {
+                padding: 15px;
+            }
+            
+            .resource-name {
+                font-size: 1.2rem;
+            }
+            
+            .learning-path {
+                padding: 15px;
+                margin: 20px 10px;
+            }
+            
+            .learning-path h3 {
+                font-size: 1.3rem;
+            }
+            
+            .path-step {
+                padding: 15px 15px 15px 15px;
+                padding-top: 50px;
+            }
+            
+            .step-number {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+            
+            .category-btn {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+            
+            .resource-link {
+                padding: 8px 15px;
+                font-size: 0.85rem;
+            }
+            
+            footer {
+                padding: 20px 0;
+            }
+            
+            .footer-bottom {
+                font-size: 0.8rem;
+            }
+        }
+        
+        /* Для очень маленьких устройств */
+        @media (max-width: 360px) {
+            header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .resource-icon {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .resource-icon i {
+                font-size: 1.3rem;
+            }
+            
+            .resource-name {
+                font-size: 1.1rem;
+            }
+            
+            .books-container, .community-grid, .resources-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+        
+        /* Улучшения для планшетов */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .resources-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .books-container {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -691,7 +904,7 @@
                 <div class="community-item">
                     <i class="fas fa-newspaper"></i>
                     <h3>Хабр</h3>
-                    <p>Крупнейший IT-портал на русском языке с статьями, новостями и комментариями.</p>
+                    <p>Крупнейший IT-портал на русском языке с статьями, новостей и комментариями.</p>
                 </div>
             </div>
             
@@ -761,19 +974,14 @@
     </footer>
 
     <script>
-        // Простой скрипт для переключения категорий
         document.addEventListener('DOMContentLoaded', function() {
             const categoryButtons = document.querySelectorAll('.category-btn');
             
             categoryButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    // Убираем активный класс у всех кнопок
                     categoryButtons.forEach(btn => btn.classList.remove('active'));
-                    // Добавляем активный класс текущей кнопке
                     this.classList.add('active');
                     
-                    // Здесь можно добавить логику фильтрации ресурсов
-                    // Для демонстрации просто показываем alert
                     alert('Фильтрация по категории: ' + this.textContent);
                 });
             });
