@@ -115,6 +115,10 @@
             border: none;
             cursor: pointer;
             padding: 0;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            z-index: 101;
         }
         
         .menu-toggle span {
@@ -363,6 +367,7 @@
             
             nav {
                 padding: 10px 0;
+                position: relative;
             }
             
             nav ul {
@@ -370,6 +375,7 @@
                 flex-direction: column;
                 width: 100%;
                 text-align: center;
+                padding: 10px 0;
             }
             
             nav ul.show {
@@ -385,23 +391,28 @@
                 justify-content: center;
                 padding: 12px;
                 border-radius: 0;
+                width: 100%;
             }
             
             .menu-toggle {
                 display: flex;
-                position: absolute;
-                top: 15px;
-                right: 20px;
             }
             
             section {
-                padding: 30px 0;
-                margin: 20px 0;
+                padding: 25px 0;
+                margin: 15px 0;
+                border-radius: 8px;
             }
             
             section h2 {
                 font-size: 1.6rem;
                 margin-bottom: 20px;
+                padding: 0 10px 15px 10px;
+            }
+            
+            .card {
+                padding: 15px;
+                margin: 0 10px;
             }
             
             .card h3 {
@@ -411,28 +422,52 @@
             .welcome-text {
                 padding: 15px;
                 font-size: 0.95rem;
+                margin: 0 10px;
+            }
+            
+            .welcome-image {
+                padding: 0 10px;
             }
             
             footer {
                 padding: 20px 0;
+                margin-top: 30px;
+            }
+            
+            .footer-section {
+                margin: 10px 0;
+                padding: 0 15px;
             }
         }
         
         @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
             header h1 {
                 font-size: 1.6rem;
+                padding: 0 10px;
             }
             
             header p {
                 font-size: 0.9rem;
+                padding: 0 10px;
+            }
+            
+            section {
+                padding: 20px 0;
+                margin: 10px 0;
             }
             
             section h2 {
                 font-size: 1.5rem;
+                padding: 0 10px 10px 10px;
             }
             
             .card {
-                padding: 15px;
+                padding: 15px 12px;
+                margin: 0 5px;
             }
             
             .card h3 {
@@ -446,10 +481,16 @@
             .welcome-text {
                 font-size: 0.9rem;
                 padding: 12px;
+                margin: 0 5px;
             }
             
             .footer-section {
                 margin: 10px 0;
+                padding: 0 10px;
+            }
+            
+            .menu-toggle {
+                right: 15px;
             }
         }
         
@@ -464,6 +505,44 @@
             
             .card h3 {
                 font-size: 1.1rem;
+            }
+            
+            .card {
+                padding: 12px 10px;
+            }
+            
+            .welcome-text {
+                padding: 10px;
+            }
+        }
+
+        /* Улучшения для очень маленьких устройств */
+        @media (max-width: 320px) {
+            header h1 {
+                font-size: 1.4rem;
+            }
+            
+            header p {
+                font-size: 0.85rem;
+            }
+            
+            .menu-toggle {
+                width: 25px;
+                height: 20px;
+                top: 12px;
+                right: 12px;
+            }
+            
+            section h2 {
+                font-size: 1.3rem;
+            }
+            
+            .card h3 {
+                font-size: 1.1rem;
+            }
+            
+            .card p, .welcome-text {
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -554,8 +633,16 @@
 
     <script>
         // Мобильное меню
-        document.getElementById('menuToggle').addEventListener('click', function() {
+        document.getElementById('menuToggle').addEventListener('click', function(e) {
+            e.stopPropagation();
             document.getElementById('navMenu').classList.toggle('show');
+        });
+        
+        // Закрытие меню при клике на пункт меню
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('navMenu').classList.remove('show');
+            });
         });
         
         // Закрытие меню при клике вне его области
@@ -567,7 +654,11 @@
                 navMenu.classList.remove('show');
             }
         });
+        
+        // Предотвращение закрытия при клике внутри меню
+        document.getElementById('navMenu').addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
     </script>
 </body>
 </html>
-
