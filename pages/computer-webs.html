@@ -20,17 +20,17 @@
         }
         
         .container {
-            width: 85%;
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px;
         }
         
         /* Header styles */
         header {
             background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
             color: white;
-            padding: 40px 0;
+            padding: 30px 0;
             text-align: center;
             border-bottom: 5px solid #64b5f6;
             position: relative;
@@ -42,25 +42,27 @@
             bottom: 10px;
             right: 20px;
             opacity: 0.2;
-            font-size: 100px;
+            font-size: 80px;
         }
         
         header h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            padding: 0 15px;
         }
         
         header p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto;
+            padding: 0 15px;
         }
         
         /* Navigation */
         nav {
             background-color: #1976d2;
-            padding: 18px 0;
+            padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -72,20 +74,23 @@
             justify-content: center;
             list-style: none;
             flex-wrap: wrap;
+            padding: 0 10px;
         }
         
         nav ul li {
-            margin: 0 20px;
+            margin: 5px 15px;
         }
         
         nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: all 0.3s;
             padding: 8px 12px;
             border-radius: 4px;
+            display: flex;
+            align-items: center;
         }
         
         nav ul li a:hover {
@@ -93,11 +98,39 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
         
+        nav ul li a i {
+            margin-right: 8px;
+        }
+        
+        /* Mobile menu button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+        
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        
         /* Section styles */
         section {
-            padding: 50px 0;
+            padding: 40px 0;
             background-color: white;
-            margin: 30px 0;
+            margin: 25px 0;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
@@ -108,26 +141,33 @@
             padding-bottom: 15px;
             border-bottom: 3px solid #bbdefb;
             text-align: center;
-            font-size: 2.2rem;
+            font-size: 2rem;
+            padding: 0 15px;
+        }
+        
+        section p {
+            padding: 0 15px;
+            margin-bottom: 20px;
         }
         
         /* Card styles */
         .cards-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 25px;
+            gap: 20px;
             margin-top: 30px;
             justify-content: center;
+            padding: 0 10px;
         }
         
         .card {
-            flex: 1 1 320px;
+            flex: 1 1 300px;
             background: linear-gradient(145deg, #e3f2fd, #bbdefb);
-            padding: 25px;
+            padding: 20px;
             border-radius: 10px;
             border-left: 5px solid #1976d2;
             transition: transform 0.3s, box-shadow 0.3s;
-            max-width: 380px;
+            max-width: 100%;
         }
         
         .card:hover {
@@ -138,7 +178,7 @@
         .card h3 {
             color: #0d47a1;
             margin-bottom: 15px;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             display: flex;
             align-items: center;
         }
@@ -151,9 +191,9 @@
         /* Network diagram */
         .network-diagram {
             background-color: #e3f2fd;
-            padding: 25px;
+            padding: 20px;
             border-radius: 10px;
-            margin: 30px 0;
+            margin: 30px 15px;
             text-align: center;
         }
         
@@ -167,7 +207,7 @@
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 20px;
         }
         
         .device {
@@ -175,19 +215,19 @@
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            width: 120px;
+            width: 110px;
             text-align: center;
         }
         
         .device i {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: #1976d2;
             margin-bottom: 10px;
         }
         
         .connection {
-            width: 40px;
-            height: 10px;
+            width: 30px;
+            height: 8px;
             background-color: #64b5f6;
             border-radius: 5px;
         }
@@ -212,6 +252,7 @@
         .footer-section {
             flex: 1 1 300px;
             margin: 15px;
+            padding: 0 10px;
         }
         
         .footer-section h3 {
@@ -220,26 +261,50 @@
             padding-bottom: 10px;
         }
         
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #bbdefb;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+        
         .footer-bottom {
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         /* Responsive design */
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
+        @media (max-width: 1024px) {
+            .header-icons {
+                font-size: 70px;
+                right: 15px;
             }
             
             nav ul li {
-                margin: 8px 0;
+                margin: 5px 12px;
             }
             
-            .cards-container {
-                flex-direction: column;
+            nav ul li a {
+                font-size: 0.95rem;
+                padding: 7px 10px;
             }
             
+            .card {
+                flex: 1 1 280px;
+            }
+        }
+        
+        @media (max-width: 900px) {
             header h1 {
                 font-size: 2.2rem;
             }
@@ -249,7 +314,214 @@
             }
             
             .header-icons {
+                font-size: 60px;
+                bottom: 5px;
+            }
+            
+            nav ul li {
+                margin: 4px 10px;
+            }
+            
+            nav ul li a {
+                font-size: 0.9rem;
+                padding: 6px 9px;
+            }
+            
+            section h2 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 25px 0;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+            
+            .header-icons {
+                font-size: 50px;
+                right: 10px;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            nav ul {
                 display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 8px 0;
+                width: 100%;
+            }
+            
+            nav ul li a {
+                justify-content: center;
+                padding: 12px;
+                border-radius: 0;
+            }
+            
+            section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .card {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+            
+            .device {
+                width: 100px;
+                padding: 12px;
+            }
+            
+            .device i {
+                font-size: 2rem;
+            }
+            
+            .footer-section {
+                flex: 1 1 100%;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+                padding: 10px;
+            }
+            
+            header {
+                padding: 20px 0;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            header p {
+                font-size: 0.95rem;
+            }
+            
+            .header-icons {
+                display: none;
+            }
+            
+            nav {
+                padding: 12px 0;
+            }
+            
+            section {
+                padding: 30px 0;
+                margin: 20px 0;
+            }
+            
+            section h2 {
+                font-size: 1.6rem;
+                margin-bottom: 20px;
+            }
+            
+            .card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .diagram {
+                gap: 15px;
+            }
+            
+            .device {
+                width: 90px;
+                padding: 10px;
+            }
+            
+            .device i {
+                font-size: 1.8rem;
+            }
+            
+            .connection {
+                width: 20px;
+            }
+            
+            footer {
+                padding: 20px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.6rem;
+            }
+            
+            header p {
+                font-size: 0.9rem;
+            }
+            
+            section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .card {
+                padding: 15px;
+            }
+            
+            .card h3 {
+                font-size: 1.2rem;
+            }
+            
+            .card h3 i {
+                font-size: 1.1rem;
+            }
+            
+            .network-diagram {
+                padding: 15px;
+                margin: 20px 10px;
+            }
+            
+            .diagram {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .connection {
+                width: 8px;
+                height: 30px;
+            }
+            
+            .footer-section {
+                margin: 10px 0;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            
+            section h2 {
+                font-size: 1.4rem;
+            }
+            
+            .card h3 {
+                font-size: 1.1rem;
+            }
+            
+            nav ul li a {
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -267,7 +539,12 @@
     
     <nav>
         <div class="container">
-            <ul>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="navMenu">
                 <li><a href="#basics"><i class="fas fa-info-circle"></i> Основы</a></li>
                 <li><a href="#types"><i class="fas fa-sitemap"></i> Типы сетей</a></li>
                 <li><a href="#equipment"><i class="fas fa-router"></i> Оборудование</a></li>
@@ -427,5 +704,45 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Мобильное меню
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('show');
+        });
+        
+        // Закрытие меню при клике вне его области
+        document.addEventListener('click', function(event) {
+            const navMenu = document.getElementById('navMenu');
+            const menuToggle = document.getElementById('menuToggle');
+            
+            if (!navMenu.contains(event.target) && !menuToggle.contains(event.target) && navMenu.classList.contains('show')) {
+                navMenu.classList.remove('show');
+            }
+        });
+        
+        // Плавная прокрутка для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Закрываем меню на мобильных устройствах после клика
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('navMenu').classList.remove('show');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
