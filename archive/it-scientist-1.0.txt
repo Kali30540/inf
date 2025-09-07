@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ученые в области информатики | Вклад в развитие технологий</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f5ff;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header styles */
+        header {
+            background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 5px solid #64b5f6;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-icons {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            opacity: 0.2;
+            font-size: 100px;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #1976d2;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            color: #bbdefb;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Section styles */
+        section {
+            padding: 50px 0;
+            background-color: white;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        section h2 {
+            color: #1976d2;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #bbdefb;
+            text-align: center;
+            font-size: 2.2rem;
+        }
+        
+        /* Scientist cards */
+        .scientists-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        .scientist-card {
+            flex: 1 1 350px;
+            background: linear-gradient(145deg, #e3f2fd, #bbdefb);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #1976d2;
+            transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 380px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .scientist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .scientist-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .scientist-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #1976d2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .scientist-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        .scientist-name {
+            color: #0d47a1;
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+        }
+        
+        .scientist-years {
+            color: #64b5f6;
+            font-style: italic;
+        }
+        
+        .scientist-contribution {
+            margin-top: 15px;
+            flex-grow: 1;
+        }
+        
+        .scientist-contribution h4 {
+            color: #0d47a1;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #1976d2;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 4px solid #1976d2;
+            border-radius: 50%;
+            top: 15px;
+            right: -13px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: 6px;
+            border-left: 4px solid #0d47a1;
+        }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: #0d47a1;
+            margin-bottom: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section {
+            flex: 1 1 300px;
+            margin: 15px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            border-bottom: 2px solid #64b5f6;
+            padding-bottom: 10px;
+        }
+        
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Responsive design */
+        @media (max-width: 900px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .timeline-item:nth-child(even)::after {
+                left: 18px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 8px 0;
+            }
+            
+            .scientists-container {
+                flex-direction: column;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
+            
+            .header-icons {
+                display: none;
+            }
+            
+            .scientist-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .scientist-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Ученые в области информатики</h1>
+            <p>Великие умы, изменившие мир технологий и вычислений</p>
+            <div class="header-icons">
+                <i class="fas fa-brain"></i>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#pioneers"><i class="fas fa-history"></i> Пионеры</a></li>
+                <li><a href="#theorists"><i class="fas fa-chalkboard-teacher"></i> Теоретики</a></li>
+                <li><a href="#innovators"><i class="fas fa-lightbulb"></i> Новаторы</a></li>
+                <li><a href="#timeline"><i class="fas fa-hourglass-half"></i> Хронология</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <section id="pioneers">
+            <h2>Пионеры информатики</h2>
+            <p>Эти ученые заложили фундаментальные основы компьютерных наук и создали технологии, которые изменили мир.</p>
+            
+            <div class="scientists-container">
+                <div class="scientist-card">
+                    <div class="scientist-header">
+                        <div class="scientist-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div>
+                            <h3 class="scientist-name">Алан Тьюринг</h3>
+                            <p class="scientist-years">1912-1954</p>
+                        </div>
+                    </div>
+                    <div class="scientist-contribution">
+                        <h4>Основной вклад:</h4>
+                        <p>Формализация понятий алгоритма и вычислений с помощью машины Тьюринга, разработка теста Тьюринга для оценки искусственного интеллекта, взлом кода "Энигмы" во время Второй мировой войны.</p>
+                    </div>
+                </div>
+                
+                <div class="scientist-card">
+                    <div class="scientist-header">
+                        <div class="scientist-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div>
+                            <h3 class="scientist-name">Ада Лавлейс</h3>
+                            <p class="scientist-years">1815-1852</p>
+                        </div>
+                    </div>
+                    <div class="scientist-contribution">
+                        <h4>Основной вклад:</h4>
+                        <p>Первый программист в истории. Составила первую в мире программу для аналитической машины Чарльза Бэббиджа, предвосхитила основные concepts программирования, включая работу с циклами и подпрограммами.</p>
+                    </div>
+                </div>
+                
+                <div class="scientist-card">
+                    <div class="scientist-header">
+                        <div class="scientist-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <div>
+                            <h3 class="scientist-name">Чарльз Бэббидж</h3>
+                            <p class="scientist-years">1791-1871</p>
+                        </div>
+                    </div>
+                    <div class="scientist-contribution">
+                        <h4>Основной вклад:</h4>
+                        <p>Разработал концепцию и создал проект первой механической вычислительной машины - "аналитической машины", которая содержала все основные components современных компьютеров: арифметическое устройство, память, устройство ввода/вывода.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="theorists">
+            <h2>Теоретики компьютерных наук</h2>
+            <p>Эти ученые разработали теоретические основы, которые легли в основу современных компьютерных технологий и алгоритмов.</p>
+            
+            <div class="scientists-container">
+                <div class="scientist-card">
+                    <div class="scientist-header">
+                        <div class="scientist-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div>
+                            <h3 class="scientist-name">Дональд Кнут</h3>
+                            <p class="scientist-years">1938-н.в.</p>
+                        </div>
+                    </div>
+                    <div class="scientist-contribution">
+                        <h4>Основной вклад:</h4>
+                        <p>Автор многотомного труда "Искусство программирования", создатель системы компьютерной вёрстки TeX и меташрифта, ввел понятие "анализ алгоритмов", разработал алгоритмы оптимизации и теорию формальных языков.</p>
+                    </div>
+                </div>
+                
+                <div class="scientist-card">
+                    <div class="scientist-header">
+                        <div class="scientist-icon">
+                            <i class="fas fa-sitemap"></i>
+                        </div>
+                        <div>
+                            <h3 class="scientist-name">Клод Шеннон</h3>
+                            <p class="scientist-years">1916-2001</p>
+                        </div>
+                    </div>
+                    <div class="scientist-contribution">
+                        <h4>Основной вклад:</h4>
+                        <p>Основоположник теории информации, ввел понятие бита как единицы информации, доказал теоремы о пропускной способности каналов, заложил основы цифровых схем, используя булеву алгебру.</p>
+                    </div>
+                </div>
+                
+                <div class="scientist-card">
+                    <div class="scientist-header">
+                        <div class="scientist-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div>
+                            <h3 class="scientist-name">Джон фон Нейман</h3>
+                            <p class="scientist-years">1903-1957</p>
+                        </div>
+                    </div>
+                    <div class="scientist-contribution">
+                        <h4>Основной вклад:</h4>
+                        <p>Предложил архитектуру компьютера, в которой программа и данные хранятся в одной памяти (архитектура фон Неймана). Внёс значительный вклад в разработку первых ЭВМ, теорию игр, квантовую механику и теорию клеточных автоматов.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="innovators">
+            <h2>Современные новаторы</h2>
+            <p>Ученые, чьи работы оказали значительное влияние на развитие современных компьютерных технологий и интернета.</p>
+            
+            <div class="scientists-container">
+                <div class="scientist-card">
+                    <div class="scientist-header">
+                        <div class="scientist-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div>
+                            <h3 class="scientist-name">Тим Бернерс-Ли</h3>
+                            <p class="scientist-years">1955-н.в.</p>
+                        </div>
+                    </div>
+                    <div class="scientist-contribution">
+                        <h4>Основной вклад:</h4>
+                        <p>Изобретатель Всемирной паутины (World Wide Web), создатель первого веб-браузера, веб-сервера и основополагающих протоколов (HTTP, HTML). Выступил за открытость и бесплатность веб-технологий.</p>
+                    </div>
+                </div>
+                
+                <div class="scientist-card">
+                    <div class="scientist-header">
+                        <div class="scientist-icon">
+                            <i class="fas fa-user-secret"></i>
+                        </div>
+                        <div>
+                            <h3 class="scientist-name">Уитфилд Диффи</h3>
+                            <p class="scientist-years">1944-н.в.</p>
+                        </div>
+                    </div>
+                    <div class="scientist-contribution">
+                        <h4>Основной вклад:</h4>
+                        <p>Один из создателей криптографии с открытым ключом. Разработал протокол обмена ключами Диффи-Хеллмана, который revolutionized безопасную коммуникацию в интернете и лег в основ современных методов шифрования.</p>
+                    </div>
+                </div>
+                
+                <div class="scientist-card">
+                    <div class="scientist-header">
+                        <div class="scientist-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div>
+                            <h3 class="scientist-name">Джеффри Хинтон</h3>
+                            <p class="scientist-years">1947-н.в.</p>
+                        </div>
+                    </div>
+                    <div class="scientist-contribution">
+                        <h4>Основной вклад:</h4>
+                        <p>Один из "крестных отцов" глубокого обучения и искусственных нейронных сетей. Разработал алгоритм обратного распространения ошибки, который является фундаментальным для тренировки многослойных нейросетей.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="timeline">
+            <h2>Хронология открытий</h2>
+            <p>Важные вехи в истории компьютерных наук и технологии, созданные этими учеными.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1843</div>
+                        <p>Ада Лавлейс публикует первую в мире компьютерную программу для аналитической машины Бэббиджа.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1936</div>
+                        <p>Алан Тьюринг публикует работу "О вычислимых числах", вводя概念 машины Тьюринга.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1945</div>
+                        <p>Джон фон Нейман публикует "First Draft of a Report on the EDVAC", описывающий архитектуру фон Неймана.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1948</div>
+                        <p>Клод Шеннон публикует "Математическую теорию связи", закладывая основы теории информации.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1976</div>
+                        <p>Уитфилд Диффи и Мартин Хеллман публикуют работу "New Directions in Cryptography", представляя криптографию с открытым ключом.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1989</div>
+                        <p>Тим Бернерс-Ли предлагает концепцию Всемирной паутины, создавая первые стандарты HTTP, HTML и URL.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2012</div>
+                        <p>Джеффри Хинтон и его студенты достигают прорыва в распознавании изображений с помощью глубоких нейронных сетей.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>О проекте</h3>
+                    <p>Образовательный ресурс, посвященный великим ученым в области информатики. Мы рассказываем об их вкладе в развитие компьютерных наук и технологий.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Быстрые ссылки</h3>
+                    <ul>
+                        <li><a href="#pioneers">Пионеры информатики</a></li>
+                        <li><a href="#theorists">Теоретики</a></li>
+                        <li><a href="#innovators">Новаторы</a></li>
+                        <li><a href="#timeline">Хронология</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>Email: info@computersciencehistory.example</p>
+                    <p>Телефон: +7 (123) 456-78-90</p>
+                    <p>Адрес: Москва, ул. Академическая, д. 15</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ученые в области информатики - Образовательный ресурс. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

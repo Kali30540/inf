@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информационный мир</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f5ff;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header styles */
+        header {
+            background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 5px solid #64b5f6;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-icons {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            opacity: 0.2;
+            font-size: 100px;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Navigation - исправленная */
+        nav {
+            background-color: #1976d2;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: nowrap;
+            padding: 0 10px;
+        }
+        
+        nav ul li {
+            margin: 0 8px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            padding: 6px 10px;
+            border-radius: 4px;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+        }
+        
+        nav ul li a:hover {
+            color: #bbdefb;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        nav ul li a i {
+            margin-right: 6px;
+            font-size: 1rem;
+        }
+        
+        /* Section styles */
+        section {
+            padding: 50px 0;
+            background-color: white;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        section h2 {
+            color: #1976d2;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #bbdefb;
+            text-align: center;
+            font-size: 2.2rem;
+        }
+        
+        /* Card styles */
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        .card {
+            flex: 1 1 320px;
+            background: linear-gradient(145deg, #e3f2fd, #bbdefb);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #1976d2;
+            transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 380px;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card h3 {
+            color: #0d47a1;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card h3 i {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+        
+        /* Welcome section */
+        .welcome-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .welcome-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .welcome-text {
+            flex: 1 1 500px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: left;
+            padding: 20px;
+            background: linear-gradient(145deg, #e3f2fd, #bbdefb);
+            border-radius: 10px;
+            border-left: 5px solid #1976d2;
+        }
+        
+        .welcome-image {
+            flex: 1 1 300px;
+            max-width: 400px;
+        }
+        
+        .welcome-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section {
+            flex: 1 1 300px;
+            margin: 15px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            border-bottom: 2px solid #64b5f6;
+            padding-bottom: 10px;
+        }
+        
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            nav ul li a {
+                font-size: 0.9rem;
+                padding: 6px 8px;
+            }
+            
+            nav ul li a i {
+                margin-right: 4px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px;
+            }
+            
+            nav ul li a {
+                font-size: 0.85rem;
+                padding: 5px 7px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
+            
+            .welcome-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 4px;
+            }
+            
+            nav ul li a {
+                font-size: 0.8rem;
+                padding: 4px 6px;
+            }
+            
+            nav ul li a i {
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            nav ul li a span {
+                display: none;
+            }
+            
+            nav ul li a i {
+                margin-right: 0;
+                font-size: 1rem;
+            }
+            
+            nav ul li a {
+                padding: 8px 10px;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Информационный мир</h1>
+            <p>Все для изучения информатики и компьютерных технологий</p>
+            <div class="header-icons">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="pages/computer-webs.html"><i class="fas fa-network-wired"></i> <span>Компьютерные сети</span></a></li>
+            <li><a href="pages/cybersafety.html"><i class="fas fa-shield-alt"></i> <span>Кибербезопасность</span></a></li>
+            <li><a href="pages/it-scientist.html"><i class="fas fa-user-graduate"></i> <span>Ученые информатики</span></a></li>
+            <li><a href="pages/it-facts.html"><i class="fas fa-lightbulb"></i> <span>Факты из мира IT</span></a></li>
+            <li><a href="pages/useful-resources.html"><i class="fas fa-book"></i> <span>Полезные ресурсы</span></a></li>
+            <li><a href="pages/os.html"><i class="fas fa-desktop"></i> <span>Операционные системы</span></a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section class="welcome-section">
+            <h2>Добро пожаловать в мир информатики!</h2>
+            <div class="welcome-content">
+                <div class="welcome-text">
+                    <p>Наш сайт создан для помощи ученикам, которые ХОТЯТ и МОГУТ достичь успехов в изучении информатики. Здесь вы найдете полезные материалы, интересные факты и ресурсы, которые помогут вам в учебе.</p>
+                    <p>Если у вас не все получается, обязательно загляните в раздел "Полезные ресурсы". Возможно, именно там вы найдете то, что вам нужно для понимания сложных тем. Если же вы не найдете ответа там, не отчаивайтесь - мы постоянно добавляем новые материалы!</p>
+                </div>
+                <div class="welcome-image">
+                    <img src="https://placehold.co/600x400/0d47a1/white?text=IT+Мир" alt="Информационные технологии">
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Популярные разделы</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <h3><i class="fas fa-network-wired"></i> Компьютерные сети</h3>
+                    <p>Изучите основы сетевых технологий, типы сетей и принципы передачи данных. Узнайте, как устроена глобальная сеть Интернет.</p>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-shield-alt"></i> Кибербезопасность</h3>
+                    <p>Узнайте о защите информации, шифровании данных и методах предотвращения кибератак. Важные знания в современном цифровом мире.</p>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-book"></i> Полезные ресурсы</h3>
+                    <p>Собрание лучших материалов для изучения информатики: учебники, онлайн-курсы, видеоуроки и практические задания.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Информационный мир</h3>
+                    <p>Образовательный ресурс для изучения информатики и компьютерных технологий.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Быстрые ссылки</h3>
+                    <p><a href="#" style="color: #bbdefb;">Главная</a></p>
+                    <p><a href="#" style="color: #bbdefb;">О проекте</a></p>
+                    <p><a href="#" style="color: #bbdefb;">Контакты</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Информационный мир. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Операционные системы | Основы и принципы работы</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f5ff;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header styles */
+        header {
+            background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 5px solid #64b5f6;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-icons {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            opacity: 0.2;
+            font-size: 100px;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #1976d2;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            color: #bbdefb;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Section styles */
+        section {
+            padding: 50px 0;
+            background-color: white;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        section h2 {
+            color: #1976d2;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #bbdefb;
+            text-align: center;
+            font-size: 2.2rem;
+        }
+        
+        /* OS cards */
+        .os-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        .os-card {
+            flex: 1 1 350px;
+            background: linear-gradient(145deg, #e3f2fd, #bbdefb);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #1976d2;
+            transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 380px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .os-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .os-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .os-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #1976d2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .os-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        .os-name {
+            color: #0d47a1;
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+        }
+        
+        .os-type {
+            color: #64b5f6;
+            font-style: italic;
+        }
+        
+        .os-features {
+            margin-top: 15px;
+            flex-grow: 1;
+        }
+        
+        .os-features h4 {
+            color: #0d47a1;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .feature-list {
+            list-style-type: none;
+        }
+        
+        .feature-list li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0d47a1;
+            font-weight: bold;
+        }
+        
+        /* Architecture diagram */
+        .architecture {
+            background-color: #e3f2fd;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .architecture h3 {
+            color: #0d47a1;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .arch-levels {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .arch-level {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+        
+        .arch-level::after {
+            content: "↓";
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            color: #1976d2;
+        }
+        
+        .arch-level:last-child::after {
+            display: none;
+        }
+        
+        /* Comparison table */
+        .comparison {
+            overflow-x: auto;
+            margin-top: 30px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .comparison-table th {
+            background-color: #1976d2;
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #e3f2fd;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #1976d2;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 4px solid #1976d2;
+            border-radius: 50%;
+            top: 15px;
+            right: -13px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: 6px;
+            border-left: 4px solid #0d47a1;
+        }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: #0d47a1;
+            margin-bottom: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section {
+            flex: 1 1 300px;
+            margin: 15px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            border-bottom: 2px solid #64b5f6;
+            padding-bottom: 10px;
+        }
+        
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Responsive design */
+        @media (max-width: 900px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .timeline-item:nth-child(even)::after {
+                left: 18px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 8px 0;
+            }
+            
+            .os-container {
+                flex-direction: column;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
+            
+            .header-icons {
+                display: none;
+            }
+            
+            .os-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .os-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Операционные системы</h1>
+            <p>Изучите основы, принципы работы и виды операционных систем</p>
+            <div class="header-icons">
+                <i class="fas fa-desktop"></i>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#basics"><i class="fas fa-info-circle"></i> Основы</a></li>
+                <li><a href="#types"><i class="fas fa-list"></i> Типы ОС</a></li>
+                <li><a href="#popular"><i class="fas fa-star"></i> Популярные ОС</a></li>
+                <li><a href="#history"><i class="fas fa-history"></i> История</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <section id="basics">
+            <h2>Что такое операционная система?</h2>
+            <p>Операционная система (ОС) — это комплекс программ, которые управляют ресурсами компьютера и обеспечивают взаимодействие между пользователем и аппаратным обеспечением. ОС служит посредником между программами и hardware, обеспечивая эффективное использование ресурсов.</p>
+            
+            <div class="architecture">
+                <h3>Архитектура операционной системы</h3>
+                <div class="arch-levels">
+                    <div class="arch-level">
+                        <strong>Пользовательские приложения</strong>
+                        <p>Браузеры, офисные пакеты, игры</p>
+                    </div>
+                    <div class="arch-level">
+                        <strong>Операционная система</strong>
+                        <p>Ядро, системные библиотеки, драйверы</p>
+                    </div>
+                    <div class="arch-level">
+                        <strong>Аппаратное обеспечение</strong>
+                        <p>Процессор, память, диски, устройства ввода/вывода</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="os-container">
+                <div class="os-card">
+                    <div class="os-header">
+                        <div class="os-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div>
+                            <h3 class="os-name">Управление ресурсами</h3>
+                            <p class="os-type">Основная функция</p>
+                        </div>
+                    </div>
+                    <div class="os-features">
+                        <p>ОС распределяет процессорное время, оперативную память, место на диске и другие ресурсы между запущенными программами, предотвращая конфликты и обеспечивая стабильную работу системы.</p>
+                    </div>
+                </div>
+                
+                <div class="os-card">
+                    <div class="os-header">
+                        <div class="os-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="os-name">Безопасность</h3>
+                            <p class="os-type">Защита системы</p>
+                        </div>
+                    </div>
+                    <div class="os-features">
+                        <p>ОС обеспечивает защиту данных и ресурсов от несанкционированного доступа, управляет правами пользователей и предоставляет механизмы для обеспечения конфиденциальности и целостности информации.</p>
+                    </div>
+                </div>
+                
+                <div class="os-card">
+                    <div class="os-header">
+                        <div class="os-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div>
+                            <h3 class="os-name">Интерфейсы</h3>
+                            <p class="os-type">Взаимодействие</p>
+                        </div>
+                    </div>
+                    <div class="os-features">
+                        <p>ОС предоставляет интерфейсы для взаимодействия: пользовательский интерфейс (GUI или CLI) для людей и программный интерфейс (API) для приложений.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="types">
+            <h2>Типы операционных систем</h2>
+            <p>Операционные системы классифицируются по различным признакам: по назначению, по способу взаимодействия, по архитектуре и другим параметрам.</p>
+            
+            <div class="os-container">
+                <div class="os-card">
+                    <div class="os-header">
+                        <div class="os-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div>
+                            <h3 class="os-name">Однозадачные ОС</h3>
+                            <p class="os-type">MS-DOS, ранние версии</p>
+                        </div>
+                    </div>
+                    <div class="os-features">
+                        <h4>Особенности:</h4>
+                        <ul class="feature-list">
+                            <li>Выполняют одну задачу в момент времени</li>
+                            <li>Простая архитектура</li>
+                            <li>Ограниченные возможности</li>
+                            <li>Используются в embedded-системах</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="os-card">
+                    <div class="os-header">
+                        <div class="os-icon">
+                            <i class="fas fa-window-restore"></i>
+                        </div>
+                        <div>
+                            <h3 class="os-name">Многозадачные ОС</h3>
+                            <p class="os-type">Windows, macOS, Linux</p>
+                        </div>
+                    </div>
+                    <div class="os-features">
+                        <h4>Особенности:</h4>
+                        <ul class="feature-list">
+                            <li>Выполняют несколько задач одновременно</li>
+                            <li>Разделение времени процессора</li>
+                            <li>Сложное управление памятью</li>
+                            <li>Поддержка многопользовательского режима</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="os-card">
+                    <div class="os-header">
+                        <div class="os-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="os-name">Мобильные ОС</h3>
+                            <p class="os-type">Android, iOS</p>
+                        </div>
+                    </div>
+                    <div class="os-features">
+                        <h4>Особенности:</h4>
+                        <ul class="feature-list">
+                            <li>Оптимизированы для сенсорного ввода</li>
+                            <li>Энергоэффективность</li>
+                            <li>Интеграция с облачными сервисами</li>
+                            <li>Магазины приложений</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="popular">
+            <h2>Популярные операционные системы</h2>
+            <p>Современный рынок операционных систем представлен различными семействами ОС, каждое из которых имеет свои особенности и целевую аудиторию.</p>
+            
+            <div class="os-container">
+                <div class="os-card">
+                    <div class="os-header">
+                        <div class="os-icon" style="background-color: #0078d7;">
+                            <i class="fab fa-windows"></i>
+                        </div>
+                        <div>
+                            <h3 class="os-name">Microsoft Windows</h3>
+                            <p class="os-type">Настольная ОС</p>
+                        </div>
+                    </div>
+                    <div class="os-features">
+                        <h4>Характеристики:</h4>
+                        <ul class="feature-list">
+                            <li>Самая популярная ОС для ПК (∼75% рынка)</li>
+                            <li>Интуитивный графический интерфейс</li>
+                            <li>Богатая совместимость с ПО и играми</li>
+                            <li>Регулярные обновления безопасности</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="os-card">
+                    <div class="os-header">
+                        <div class="os-icon" style="background-color: #000000;">
+                            <i class="fab fa-linux"></i>
+                        </div>
+                        <div>
+                            <h3 class="os-name">Linux</h3>
+                            <p class="os-type">Открытая ОС</p>
+                        </div>
+                    </div>
+                    <div class="os-features">
+                        <h4>Характеристики:</h4>
+                        <ul class="feature-list">
+                            <li>Открытое исходное программное обеспечение</li>
+                            <li>Высокая стабильность и безопасность</li>
+                            <li>Широкое использование на серверах (∼96%)</li>
+                            <li>Множество дистрибутивов (Ubuntu, Fedora)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="os-card">
+                    <div class="os-header">
+                        <div class="os-icon" style="background-color: #999999;">
+                            <i class="fab fa-apple"></i>
+                        </div>
+                        <div>
+                            <h3 class="os-name">macOS</h3>
+                            <p class="os-type">Проприетарная ОС</p>
+                        </div>
+                    </div>
+                    <div class="os-features">
+                        <h4>Характеристики:</h4>
+                        <ul class="feature-list">
+                            <li>Разработана Apple для компьютеров Mac</li>
+                            <li>Высокая оптимизация и стабильность</li>
+                            <li>Интеграция с экосистемой Apple</li>
+                            <li>UNIX-основа с красивым интерфейсом</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comparison">
+                <h3 style="text-align: center; margin: 30px 0;">Сравнение популярных ОС</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Характеристика</th>
+                            <th>Windows</th>
+                            <th>Linux</th>
+                            <th>macOS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Тип лицензии</td>
+                            <td>Проприетарная</td>
+                            <td>Открытая (GPL)</td>
+                            <td>Проприетарная</td>
+                        </tr>
+                        <tr>
+                            <td>Рыночная доля (ПК)</td>
+                            <td>∼75%</td>
+                            <td>∼2%</td>
+                            <td>∼15%</td>
+                        </tr>
+                        <tr>
+                            <td>Стоимость</td>
+                            <td>Платная</td>
+                            <td>Бесплатная</td>
+                            <td>Включена в стоимость Mac</td>
+                        </tr>
+                        <tr>
+                            <td>Безопасность</td>
+                            <td>Средняя</td>
+                            <td>Высокая</td>
+                            <td>Высокая</td>
+                        </tr>
+                        <tr>
+                            <td>Игровая поддержка</td>
+                            <td>Отличная</td>
+                            <td>Средняя (растет)</td>
+                            <td>Ограниченная</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <section id="history">
+            <h2>История развития ОС</h2>
+            <p>Операционные системы прошли долгий путь развития от простых мониторов задач до сложных многозадачных систем с графическими интерфейсами.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1950-е</div>
+                        <p>Первые ОС представляли собой простые мониторы задач, которые загружали программы и управляли их выполнением. Работа в пакетном режиме.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1960-е</div>
+                        <p>Появление многозадачных систем с разделением времени (CTSS, Multics). Начало развития концепций виртуальной памяти и файловых систем.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1970-е</div>
+                        <p>Создание UNIX в Bell Labs. Развитие концепции переносимости ОС. Появление первых персональных компьютеров и ОС для них (CP/M).</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1980-е</div>
+                        <p>Революция графических интерфейсов (Xerox Alto, Apple Macintosh, Windows). Рост популярности персональных компьютеров. Создание GNU и начало движения за свободное ПО.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1990-е</div>
+                        <p>Доминирование Windows на рынке ПК. Появление Linux (1991). Развитие сетевых возможностей ОС. Рост важности интернета.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2000-е</div>
+                        <p>Распространение мобильных ОС (iOS, Android). Развитие облачных технологий. Повышение важности безопасности. Появление виртуализации и контейнеризации.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2010-е - настоящее время</div>
+                        <p>Доминирование мобильных ОС. Развитие IoT и embedded-систем. Искусственный интеллект в ОС. Повышение внимания к конфиденциальности и безопасности.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>О проекте</h3>
+                    <p>Образовательный ресурс, посвященный операционным системам. Мы рассказываем об основах, принципах работы и истории развития ОС.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Разделы</h3>
+                    <ul>
+                        <li><a href="#basics">Основы ОС</a></li>
+                        <li><a href="#types">Типы ОС</a></li>
+                        <li><a href="#popular">Популярные ОС</a></li>
+                        <li><a href="#history">История развития</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>Email: info@operatingsystems.example</p>
+                    <p>Телефон: +7 (123) 456-78-90</p>
+                    <p>Адрес: Москва, ул. Системная, д. 10</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Операционные системы - Образовательный ресурс. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
